@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <table *ngIf="produtos.length > 0" class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Preço</th>
+          <th scope="col" colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos">
+          <th scope="row">{{ produto.id }}</th>
+          <td>{{ produto.nome }}</td>
+          <td>{{ produto.descricao }}</td>
+          <td>{{ produto.preco.toString() | currency }}</td>
+          <td>
+            <a class="btn btn-warning" routerLink="/form-alterar/{{produto.id}}">Alterar</a>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="excluir(produto)">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
